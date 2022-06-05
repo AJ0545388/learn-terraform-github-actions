@@ -3,6 +3,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "3.26.0"
+      region = "eu-west-3"
     }
     random = {
       source  = "hashicorp/random"
