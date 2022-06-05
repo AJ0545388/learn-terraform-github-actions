@@ -2,7 +2,6 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      region  = "us-east-1"
       version = "3.26.0"
     }
     random = {
@@ -22,7 +21,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "eu-west-3"
 }
 
 resource "random_pet" "sg" {}
