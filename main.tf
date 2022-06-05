@@ -56,6 +56,14 @@ resource "aws_instance" "web" {
               systemctl restart apache2
               EOF
 }
+resource "aws_vpc" "main" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "main"
+  }
+}
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
@@ -74,14 +82,6 @@ resource "aws_security_group" "web-sg" {
   }
 }
 
-resource "aws_vpc" "main" {
-  cidr_block       = "10.0.0.0/16"
-  instance_tenancy = "default"
-
-  tags = {
-    Name = "main"
-  }
-}
 output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
