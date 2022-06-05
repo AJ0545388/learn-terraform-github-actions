@@ -3,7 +3,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "3.26.0"
-      default-region = "eu-west-3"
     }
     random = {
       source  = "hashicorp/random"
@@ -13,7 +12,7 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "jprio"
+    organization = "REPLACE_ME"
 
     workspaces {
       name = "gh-actions-demo"
@@ -40,7 +39,7 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonica
+  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_instance" "web" {
